@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package textbookchap6chal2;
+package java_text.chapter_6.challenge_2;
 
 /**
  * This is class that describes a car.
@@ -61,13 +61,13 @@ public class Car {
      * Method for incrementing speed by 5.
      */
     public void accelerate() {
-        this.speed = this.speed + 5; //increment speed by 5. 
+        this.speed += 5; //increase speed by 5.
     }
     
     /**
      * Method for decreasing speed by 5.
      */
     public void brake() {
-        this.speed = this.speed - 5; //decrease speed by 5.
+        this.speed -= 5; //decrease speed by 5.
     }
 }

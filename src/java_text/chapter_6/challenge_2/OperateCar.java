@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package textbookchap6chal2;
+package java_text.chapter_6.challenge_2;
 
 /**
  * This file contains the main method which will create an instance of the 
