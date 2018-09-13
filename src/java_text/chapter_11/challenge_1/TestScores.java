@@ -29,6 +29,12 @@ public class TestScores {
         this.testScores = testScores;
     }
     
+    /**
+     * This method will return an average test score and will throw an 
+     * exception if one of the test scores is invalid.
+     * @param ts
+     * @return average.
+     */
     public double averageTestScore(int[] ts) {
         double average = 0; // Initialize the variable for the average.
         int sum = 0; // Sum of array.
