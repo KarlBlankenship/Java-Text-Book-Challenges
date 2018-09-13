@@ -68,6 +68,8 @@ public class ManageEmployees {
         System.out.println("Hire Date: " + squirrel.getHireDate());
         System.out.println("Shift: " + squirrel.getShift());
         System.out.println("Hourly Pay Rate: " + squirrel.getHourlyPayRate());
+        
     }
+    
 
 }
