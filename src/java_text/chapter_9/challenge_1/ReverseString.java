@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class ReverseString {
 
     /**
+     * Main method for executing this program.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -28,6 +29,7 @@ public class ReverseString {
         // Read string upon enter.
         inputString = keyboard.nextLine();
         
+        // Display the results.
         System.out.println(reverseOrder(inputString));
         
     }
