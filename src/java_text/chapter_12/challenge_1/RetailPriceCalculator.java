@@ -9,6 +9,7 @@
 package java_text.chapter_12.challenge_1;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 /**
  *
@@ -17,7 +18,8 @@ import javax.swing.*;
 public class RetailPriceCalculator extends JFrame {
 
     private JPanel panel;               // To reference the panel.
-    private JLabel messageLabel;        // To reference the message label.
+    private JLabel wspLabel;            // Wholesale price label.
+    private JLabel markupLabel;         // Markup percentage label.
     private JTextField wholesalePrice;  // To reference the wholesale field.
     private JTextField markup;          // To reference retail markup field.
     private JButton calcButton;         // To reference the calculate button.
@@ -48,14 +50,20 @@ public class RetailPriceCalculator extends JFrame {
         setVisible(true);       
     }
     
-    
+    /**
+     * The buildPanel method adds a label, text fields and a button 
+     * to the panel. Add the action listener to the calculate button.
+     */
     private void buildPanel() {
         
         // Create a label to display instructions.
-        messageLabel = new JLabel("Enter wholesale cost and markup percentage");
+        wspLabel = new JLabel("Enter Wholesale Cost in $: ");
         
         // Create a wholesale text field 10 characters wide.
         wholesalePrice = new JTextField(10);
+        
+        // Create a label to display instructions.
+        markupLabel = new JLabel("Enter Markup Percentage: ");
         
         // Create a markup text field 10 characters wide.
         markup = new JTextField(10);
@@ -63,33 +71,61 @@ public class RetailPriceCalculator extends JFrame {
         // Create a button with caption "Calculate."
         calcButton = new JButton("Calculate");
         
+        // Add the action listener to the button.
+        calcButton.addActionListener(new CalcButtonListener());
+
         // Create the JPanel object and let the panel field reference it.
         panel = new JPanel();
         
         // Add the label, text fields, and button components to the panel.
-        panel.add(messageLabel);
+        panel.add(wspLabel);
         panel.add(wholesalePrice);
+        panel.add(markupLabel);
         panel.add(markup);
         panel.add(calcButton);   
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
+     * CalcButtonLister is an action listener class for the 
+     * calculate button.
+     */
+    private class CalcButtonListener implements ActionListener {
+        
+        /**
+         * The action performed method executes when the user clicks
+         * on the calculate button
+         * @param e the event object.
+         */
+        public void actionPerformed(ActionEvent e) {
+            
+            String wholesaleInput;      // Holds wholesale entry.
+            String markupInput;         // Holds markup entry
+            double retailPrice;         // The calculated retail price.
+            
+            // Get the text entered by the user for wholesale and markup.
+            wholesaleInput = wholesalePrice.getText();
+            markupInput = markup.getText();
+            
+            // Calculate retail price.
+            retailPrice = Double.parseDouble(wholesaleInput) + 
+                            (Double.parseDouble(wholesaleInput) *
+                                Double.parseDouble(markupInput) / 100);
+            
+            // Display the resulats.
+            JOptionPane.showMessageDialog(null, "Retail Price is $" +
+                                                    retailPrice);
+                    
+        }
+    }
+    
+    
+  
+    /**
+     * Main method.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new RetailPriceCalculator();
     }
     
 }
