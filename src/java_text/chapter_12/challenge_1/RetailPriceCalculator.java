@@ -54,7 +54,23 @@ public class RetailPriceCalculator extends JFrame {
         // Create a label to display instructions.
         messageLabel = new JLabel("Enter wholesale cost and markup percentage");
         
-        //
+        // Create a wholesale text field 10 characters wide.
+        wholesalePrice = new JTextField(10);
+        
+        // Create a markup text field 10 characters wide.
+        markup = new JTextField(10);
+        
+        // Create a button with caption "Calculate."
+        calcButton = new JButton("Calculate");
+        
+        // Create the JPanel object and let the panel field reference it.
+        panel = new JPanel();
+        
+        // Add the label, text fields, and button components to the panel.
+        panel.add(messageLabel);
+        panel.add(wholesalePrice);
+        panel.add(markup);
+        panel.add(calcButton);   
     }
     
     
