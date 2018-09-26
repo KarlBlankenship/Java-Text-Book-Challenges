@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Write a method that uses recursion to raise a number to a power.
+ * The method shouldaccept two arguments: the number to be raised
+ * and the exponent. Assume that the exponentis a nonnegative integer.
+ * Demonstrate the method in a program.
  */
 package java_text.chapter_16.challenge_7;
 
