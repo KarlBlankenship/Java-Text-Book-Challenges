@@ -7,16 +7,33 @@
 package java_text.chapter_16.challenge_7;
 
 /**
- *
+ * RecursivePower class for computing exponents.
  * @author Karl
  */
 public class RecursivePower {
 
     /**
+     * Main method. Executes and calls power method with number 
+     * and exponent arguments.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println(power(2,3));
     }
     
+    /**
+     * power method accepts a number and exponent and raises the 
+     * number to the exponent using recursion.
+     * @param number
+     * @param exponent
+     * @return number raised to the exponent.
+     */
+    private static int power(int number, int exponent) {
+       
+        if (exponent == 0)
+            return 1;
+        else
+            return number * power(number,exponent-1);
+      
+    }  
 }
