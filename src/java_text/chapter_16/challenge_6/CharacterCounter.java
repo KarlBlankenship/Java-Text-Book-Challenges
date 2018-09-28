@@ -17,10 +17,19 @@ public class CharacterCounter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        char[] charArray = {'a','b','c','i','d','e','f','g','t','y'};
+        char target = 'a';
+        System.out.println(counter(charArray, target, charArray.length-1));
     }
     
-    private int counter(char[] input, char x) {
-        
+    private static int counter(char[] input, char x, int index) {
+        if (index == 0 && input[index] == x)
+            return 1;
+        else if (index == 0 && input[index] != x)
+            return 0;
+        else if (input[index] == x)
+            return 1 + counter(input, x, index - 1);
+        else
+            return counter(input, x, index - 1);        
     }
 }
