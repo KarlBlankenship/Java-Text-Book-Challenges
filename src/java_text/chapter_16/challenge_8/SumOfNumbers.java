@@ -16,6 +16,8 @@ package java_text.chapter_16.challenge_8;
 public class SumOfNumbers {
 
     /**
+     * This is the main class which will initialize variable and call
+     * the summation method.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -26,6 +28,12 @@ public class SumOfNumbers {
                 " is " + summation(x) + ".");
     }
     
+    /**
+     * summation method accepts an integer and sums all the integers from
+     * 1 to the input integer.
+     * @param x input integer
+     * @return integer sum
+     */
     private static int summation(int x) {
         if (x == 1)
             return 1;
