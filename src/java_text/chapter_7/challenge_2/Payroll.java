@@ -22,25 +22,37 @@ public class Payroll
     public int[] getEmployeeID() {
         return employeeID;
     }
+    
+    public int getEmployeeID(int index) {
+        return employeeID[index];
+    }
 
-    public void setEmployeeID(int[] employeeID) {
-        this.employeeID = employeeID;
+    public void setEmployeeID(int index, int iD) {
+        this.employeeID[index] = iD;
     }
     
     public int[] getHours() {
         return hours;
     }
+    
+    public int getHours(int index, int iD) {
+        return hours[index];
+    }
 
-    public void setHours(int[] hours) {
-        this.hours = hours;
+    public void setHours(int index, int hrs) {
+        this.hours[index] = hrs;
     }
     
     public double[] getPayRate() {
         return payRate;
     }
+    
+    public double getPayRate(int index) {
+        return payRate[index];
+    }
 
-    public void setPayRate(double[] payRate) {
-        this.payRate = payRate;
+    public void setPayRate(int index, double pR) {
+        this.payRate[index] = pR;
     }
     
     public double calculateGrossWages(int eID)
