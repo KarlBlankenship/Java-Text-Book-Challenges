@@ -48,7 +48,6 @@ public class demonstratePayroll
             while (!isValid)
             {
                 keyInt = keyboard.nextInt();
-                //System.out.println();
                 if (keyInt >= 0)
                 {
                     payroll.setHours(index, keyInt);
@@ -65,7 +64,6 @@ public class demonstratePayroll
             while (!isValid)
             {
                 keyDouble = keyboard.nextDouble();
-                //System.out.println();
                 if (keyDouble >= 6.00)
                 {
                     payroll.setPayRate(index, keyDouble);
@@ -76,7 +74,10 @@ public class demonstratePayroll
                             + "equal to 6.00.");
             }
             
-            // calculate gross pay, update object and display the gross pay.
+            // Reset the isValid flag for the next index.
+            isValid = false;
+            
+            // Display the gross pay.
             System.out.println("Gross wages for employee " + 
                                 payroll.getEmployeeID(index) +
                                 " are $" +

@@ -58,7 +58,7 @@ public class Payroll
     public double calculateGrossWages(int index)
     {
         double grossWages = -1;
-        if (employeeID[index] < 7) 
+        if (index < 7) 
         {
             wages[index] = hours[index] * payRate[index];
             grossWages = wages[index];
