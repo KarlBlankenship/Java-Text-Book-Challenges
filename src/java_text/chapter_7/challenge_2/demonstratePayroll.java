@@ -35,14 +35,20 @@ public class demonstratePayroll
         // Create boolean valid flag for data entry.
         boolean isValid = false;
         
+        // Create a local variable for gross wages.
+        double grossPay;
         
-        for (int index : payroll.getEmployeeID())
+        // Cycle through all employee ID's, get hours and payrate and 
+        // calculate the gross wages.
+        //for (int index : payroll.getEmployeeID())
+        for (int index = 0; index < 7; index++)
         {
             System.out.println("Please enter hours for employee ID " +
                                 payroll.getEmployeeID(index) + ": ");
             while (!isValid)
             {
                 keyInt = keyboard.nextInt();
+                //System.out.println();
                 if (keyInt >= 0)
                 {
                     payroll.setHours(index, keyInt);
@@ -53,9 +59,28 @@ public class demonstratePayroll
             }    
                 
             // Reset the valid flag and ask for pay rate to be entered
+            isValid = false;
+            System.out.println("Please enter pay rate for employee ID " +
+                                payroll.getEmployeeID(index) + ": ");
+            while (!isValid)
+            {
+                keyDouble = keyboard.nextDouble();
+                //System.out.println();
+                if (keyDouble >= 6.00)
+                {
+                    payroll.setPayRate(index, keyDouble);
+                    isValid = true;
+                }
+                else
+                    System.out.println("Pay rate mut be greater than or "
+                            + "equal to 6.00.");
+            }
             
             // calculate gross pay, update object and display the gross pay.
+            System.out.println("Gross wages for employee " + 
+                                payroll.getEmployeeID(index) +
+                                " are $" +
+                                payroll.calculateGrossWages(index));
         }
-    }
-    
+    } 
 }

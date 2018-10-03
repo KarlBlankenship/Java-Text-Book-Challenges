@@ -35,7 +35,7 @@ public class Payroll
         return hours;
     }
     
-    public int getHours(int index, int iD) {
+    public int getHours(int index) {
         return hours[index];
     }
 
@@ -55,16 +55,13 @@ public class Payroll
         this.payRate[index] = pR;
     }
     
-    public double calculateGrossWages(int eID)
+    public double calculateGrossWages(int index)
     {
         double grossWages = -1;
-        for (int index : employeeID)
+        if (employeeID[index] < 7) 
         {
-            if (employeeID[index] == eID) 
-            {
-                wages[index] = hours[index] * payRate[index];
-                grossWages = wages[index];
-            }
+            wages[index] = hours[index] * payRate[index];
+            grossWages = wages[index];
         }
         return grossWages;
     }
