@@ -5,7 +5,7 @@
  * The class should have as a field an ArrayList of T.
  *
  * Write a public method named add, which accepts a parameter of type T.
- * When an argument is passedto the method, it is added to the ArrayList.
+ * When an argument is passed to the method, it is added to the ArrayList.
  *
  * Write two other methods, largest and smallest, which return the largest
  * and smallest values in the ArrayList.
@@ -25,5 +25,27 @@ public class MyList<T extends Number>
 {
     private ArrayList<T> list = new ArrayList<>();    // Create the ArrayList.
     
-    
+    /**
+     * The add method will add an input to the ArrayList of type T.
+     * @param input 
+     */
+    public void add(T input)
+    {
+        list.add(input);
+    }
+ 
+    /**
+     * The greater method is written to do the actual comparison
+     * between two objects of type T.
+     * @param <T>
+     * @param arg1
+     * @param arg2
+     * @return the larger object.
+     */
+    /*private <T extends Comparable<T>> T largest()
+    {
+        T max;
+        
+        return max;
+    }*/
 }
