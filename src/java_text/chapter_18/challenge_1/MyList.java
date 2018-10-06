@@ -35,17 +35,22 @@ public class MyList<T extends Number>
     }
  
     /**
-     * The greater method is written to do the actual comparison
-     * between two objects of type T.
+     * 
      * @param <T>
-     * @param arg1
-     * @param arg2
-     * @return the larger object.
+     * @return 
      */
-    /*private <T extends Comparable<T>> T largest()
+    public <T extends Comparable<T>> T largest()
     {
-        T max;
+         
+        T max = (T)list.get(0);
+        T sample;
         
+        for (int index = 1; index < list.size(); index++)
+        {
+            sample = (T)list.get(index);
+            if (sample.compareTo(max) > 0)
+                max = sample;
+        }
         return max;
-    }*/
+    }
 }
