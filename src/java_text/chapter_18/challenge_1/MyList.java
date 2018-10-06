@@ -35,22 +35,34 @@ public class MyList<T extends Number>
     }
  
     /**
-     * 
+     * The largest method will return the largest value found in list.
      * @param <T>
-     * @return 
+     * @return the maximum value found in list.
      */
     public <T extends Comparable<T>> T largest()
-    {
-         
-        T max = (T)list.get(0);
-        T sample;
-        
-        for (int index = 1; index < list.size(); index++)
+    { 
+        T max = (T)list.get(0);  // Set max to the initial array value.         
+        for (int index = 0; index < list.size(); index++)
         {
-            sample = (T)list.get(index);
-            if (sample.compareTo(max) > 0)
-                max = sample;
+            if (((T)list.get(index)).compareTo(max) > 0)
+                max = (T)list.get(index);
         }
         return max;
+    }
+    
+    /**
+     * The smallest method will return the smallest value found in list.
+     * @param <T>
+     * @return the minimum value found in list.
+     */
+    public <T extends Comparable<T>> T smallest()
+    { 
+        T min = (T)list.get(0);  // Set max to the initial array value.    
+        for (int index = 0; index < list.size(); index++)
+        {
+            if (((T)list.get(index)).compareTo(min) < 0)
+                min = (T)list.get(index);
+        }
+        return min;
     }
 }
