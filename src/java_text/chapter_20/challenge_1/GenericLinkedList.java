@@ -249,6 +249,15 @@ public class GenericLinkedList<T extends Number>
     }  
     
     /**
+     * The clear method is void and removes all objects from the list.
+     */
+    public void clear()
+    {  
+         first = null;
+         last = null;
+    }
+    
+    /**
      * The main method executes the program.
      * @param args the command line arguments
      */
@@ -292,6 +301,13 @@ public class GenericLinkedList<T extends Number>
         // Remove an element by value.
         gll.remove(4.567);
         System.out.println("Remove element 4.567: \n" + gll.toString());
+        
+        // Clear the contents with the clear method.
+        gll.clear();
+        System.out.println("Clear contents and display contents \n" +
+                                    gll.toString());
+        
+        System.out.println("Check size after clear: " + gll.size());
     }
     
 }
