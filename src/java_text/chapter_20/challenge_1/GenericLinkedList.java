@@ -14,16 +14,17 @@ package java_text.chapter_20.challenge_1;
 /**
  *
  * @author Karl
+ * @param <T>
  */
-public class GenericLinkedList 
+public class GenericLinkedList<T extends Number> 
 {
     /**
      * The Node class stores a list element
      * and a reference to the next and previous node.
      */
-    private class Node
+    private class Node<T extends Number>
     {
-        String value;       // Value of a list element.
+        T value;            // Value of a list element.
         Node next;          // Next Node in the list.
         Node prev;          // Previous Node in the list.
         
@@ -33,7 +34,7 @@ public class GenericLinkedList
          * @param n The reference to the successor node.
          * @param p The reference to the predecessor node.
          */
-        Node(String val, Node n, Node p)
+        Node(T val, Node n, Node p)
         {
             value = val;
             next = n;
@@ -44,7 +45,7 @@ public class GenericLinkedList
          * Constructor.
          * @param val The element to be stored in the node.
          */
-        Node(String val)
+        Node(T val)
         {
             // Just call the other (sister) constructor.
             this(val, null, null);
@@ -57,7 +58,7 @@ public class GenericLinkedList
     /**
      * Constructor.
      */
-    public DLinkedList()
+    public GenericLinkedList()
     {
         first = null;
         last = null;
@@ -93,7 +94,7 @@ public class GenericLinkedList
      * The add method adds to the end of the list.
      * @param e The value to add.
      */
-    public void add(String e)
+    public void add(T e)
     {
         if (isEmpty())
         {
@@ -114,7 +115,7 @@ public class GenericLinkedList
      * @param e The element to add to the list.
      * @exception IndexOutOfBoundsException when index is out of bounds.
      */
-    public void add(int index, String e)
+    public void add(int index, T e)
     {
         if (index < 0 || index > size())
         {
@@ -179,7 +180,7 @@ public class GenericLinkedList
      * @return The element removed.
      * @exception IndexOutOfBoundsException When index is out of bounds.
      */
-    public String remove(int index)
+    public T remove(int index)
     {
         if (index < 0 || index >= size())
         {
@@ -192,7 +193,7 @@ public class GenericLinkedList
         for (int k = 1; k <= index; k++)
             target = target.next;
         
-        String element = target.value;  // Element to return.
+        T element =  (T) target.value;  // Element to return.
         Node pred = target.prev;        // Node before the target.
         Node succ = target.next;        // Node after the target.
         
@@ -216,14 +217,14 @@ public class GenericLinkedList
      * @param element The element to be removed.
      * @return true if the element was removed, false otherwise.
      */
-    public boolean remove(String element)
+    public boolean remove(T element)
     {
         if (isEmpty())
             return false;
         
         // Locate the node targeted for removal.
         Node target = first;
-        while (target != null && !element.equals(target.value))
+        while (target != null && !element.equals(target.value)) //!!!
             target = target.next;
         
         if (target == null)
@@ -253,14 +254,14 @@ public class GenericLinkedList
      */
     public static void main(String[] args) 
     {
-        DLinkedList dll = new DLinkedList();
-        dll.add("Amy");
-        dll.add("Bob");
-        dll.add(0, "Al");
-        dll.add(2, "Beth");
-        dll.add(4, "Carol");
+        GenericLinkedList gll = new GenericLinkedList();
+        gll.add(1.234);
+        gll.add(2.345);
+        gll.add(0, 3.456);
+        gll.add(2, 4.567);
+        gll.add(4, 5.678);
         System.out.println("The elements of the list are:");
-        System.out.println(dll);
+        System.out.println(gll);
     }
     
 }
