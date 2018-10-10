@@ -254,14 +254,44 @@ public class GenericLinkedList<T extends Number>
      */
     public static void main(String[] args) 
     {
+        // Create an instance of GenericLinkedList.
         GenericLinkedList gll = new GenericLinkedList();
+        
+        // Check the isEmpty method prior to adding anything to the list.
+        System.out.println("The list isEmpty: " + gll.isEmpty());
+        
+        // Check the size method prior to adding anything to the list.
+        System.out.println("The list size: " + gll.size());
+        
+        // Add elements to the list using base constructor.
         gll.add(1.234);
         gll.add(2.345);
+        
+        // Add elements to the list in specific indexes.
         gll.add(0, 3.456);
         gll.add(2, 4.567);
         gll.add(4, 5.678);
-        System.out.println("The elements of the list are:");
+        
+        // Display the list.
+        System.out.println("Add elements to the list:");
         System.out.println(gll);
+        
+        // Check the isEmpty method after adding elements to the list.
+        System.out.println("The list isEmpty: " + gll.isEmpty());
+        
+        // Check the size method after adding elements to the list.
+        System.out.println("The list size: " + gll.size());
+        
+        // Check the toString method.
+        System.out.println("toString method: \n" + gll.toString());
+        
+        // Remove an element by index.
+        gll.remove(1);
+        System.out.println("Remove index 1: \n" + gll.toString());
+        
+        // Remove an element by value.
+        gll.remove(4.567);
+        System.out.println("Remove element 4.567: \n" + gll.toString());
     }
     
 }
