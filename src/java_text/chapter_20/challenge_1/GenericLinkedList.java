@@ -257,6 +257,12 @@ public class GenericLinkedList<T extends Number>
          last = null;
     }
     
+    /**
+     * The get method will retrieve and return the node value
+     * at the provided index.
+     * @param index The index to retrieve the value from.
+     * @return The node value at the given index.
+     */
     public T get(int index)
     {
         // Check to see if index is valid.
@@ -275,6 +281,36 @@ public class GenericLinkedList<T extends Number>
         T element =  (T) target.value;  // Element to return.
         
         return element;
+    }
+    
+    /**
+     * The set method will replace the value in a given index and 
+     * then return the original value from that index.
+     * @param index The index of the node to have its value changed.
+     * @param element The value to insert at the given node.
+     * @return The original value in the given node.
+     */
+    public T set(int index, T element)
+    {
+        // Check to see if index is valid.
+        if (index < 0 || index >= size())
+        {
+            String message = String.valueOf(index);
+            throw new IndexOutOfBoundsException(message);
+        }
+        
+        // Locate the node to return.
+        Node target = first;
+        for (int k = 1; k <= index; k++)
+            target = target.next;
+        
+        // Get the intial value of the node to be retruned.
+        T replacedElement =  (T) target.value;
+        
+        // Set the new element.
+        target.value = element;
+        
+        return replacedElement;
     }
     
     /**
@@ -327,6 +363,13 @@ public class GenericLinkedList<T extends Number>
         
         // Display contents to veryfy that get retreived but did not remove.
         System.out.println("Contents after get: \n" + gll.toString());
+        
+        // verify that the set method replaces an element with the
+        // specified value and returns the replaced value.
+        
+        System.out.println("Set node 2 value to 6.789. Original value was "
+                                + gll.set(2, 6.789));
+        System.out.println(gll.toString());
         
         // Clear the contents with the clear method.
         gll.clear();
