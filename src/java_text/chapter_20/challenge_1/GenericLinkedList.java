@@ -257,6 +257,26 @@ public class GenericLinkedList<T extends Number>
          last = null;
     }
     
+    public T get(int index)
+    {
+        // Check to see if index is valid.
+        if (index < 0 || index >= size())
+        {
+            String message = String.valueOf(index);
+            throw new IndexOutOfBoundsException(message);
+        }
+        
+        // Locate the node to return.
+        Node target = first;
+        for (int k = 1; k <= index; k++)
+            target = target.next;
+        
+        // Get value of the node.
+        T element =  (T) target.value;  // Element to return.
+        
+        return element;
+    }
+    
     /**
      * The main method executes the program.
      * @param args the command line arguments
@@ -301,6 +321,12 @@ public class GenericLinkedList<T extends Number>
         // Remove an element by value.
         gll.remove(4.567);
         System.out.println("Remove element 4.567: \n" + gll.toString());
+        
+        // Test the get method to get element 1.
+        System.out.println("Get element 1: " + gll.get(1));
+        
+        // Display contents to veryfy that get retreived but did not remove.
+        System.out.println("Contents after get: \n" + gll.toString());
         
         // Clear the contents with the clear method.
         gll.clear();
