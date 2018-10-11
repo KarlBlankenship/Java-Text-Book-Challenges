@@ -8,16 +8,77 @@
 package java_text.chapter_20.challenge_2;
 
 /**
- *
+ * This class will implement reverse and sort methods.
  * @author Karl
  */
-public class LinkedListSortAndReverse {
-
+public class LinkedListSortAndReverse 
+{
     /**
-     * @param args the command line arguments
+     * The Node class stores a list element
+     * and a reference to the next node.
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private class Node
+    {
+        String value;
+        Node next;
+        
+        /**
+         * Constructor.
+         * @param val The element to store in the node.
+         * @param n The reference to the successor node.
+         */
+        Node(String val, Node n)
+        {
+            value = val;
+            next = n;
+        }
+        
+        /**
+         * Constructor.
+         * @param val The element to store in the node.
+         */
+        Node(String val)
+        {
+            // Call the other (sister) constructor.
+            this(val, null);
+        }
     }
     
+    private Node first;     // The list head.
+    private Node last;      // The last element in the list.
+    
+    /**
+     * Constructor.
+     */
+    public LinkedListSortAndReverse()
+    {
+        first = null;
+        last = null;
+    }
+    
+    /**
+     * The toString method computes the string representation
+     * of the list.
+     * @return The string form of the list.
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder strBuilder = new StringBuilder();
+        
+        //Use p to walk down the linked list.
+        Node p = first;
+        while (p != null)
+        {
+            strBuilder.append(p.value + "\n");
+            p = p.next;
+        }
+        return strBuilder.toString();
+    }
+    
+    
+    public void reverse()
+    {
+        
+    }
 }
