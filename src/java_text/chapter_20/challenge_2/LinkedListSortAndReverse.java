@@ -253,20 +253,15 @@ public class LinkedListSortAndReverse
         
         for (int i = 1; i < size(); i++)
         {
+            Node succ = pointer.next;
+            
+            pointer.next = first;
+            first = first.next;
             if (pointer.next == null)
-            {
-                pointer.next = first;
-                first = first.next;
                 pointer.next.next = null;
-            }
-            else
-            {
-                Node succ = pointer.next;
-                pointer.next = first;
-                first = first.next;
-                pointer.next.next = succ;
-            }
-        }     
+            else    
+                pointer.next.next = succ;   
+        }  
     }
     
     /**
@@ -301,5 +296,7 @@ public class LinkedListSortAndReverse
 //        System.out.println("Remove Amy:");
 //        ll.remove("Amy");
         System.out.println(ll);
+        System.out.println();
+        System.out.println(ll.last.next);
     }   
 }
