@@ -269,28 +269,27 @@ public class LinkedListSortAndReverse
     
     public void sort()
     {
-        Node pointer = first;
+        
         // try bubble sort
-        for (int i = size() - 1; i >= 0; i--)
+        for (int i = size() - 1; i > 0; i--)
         {
-            for (int j = 0; j <= i - 1; j++)
+            Node pointer = first;
+            Node comp = pointer.next;
+            
+            
+            for (int j = 1; j <= i; j++)
             {
-                if (pointer.value.compareTo(pointer.next.value) > 0)
+            
+                if (pointer.value.compareTo(comp.value) < 0)
                 {
-                    Node temp = pointer.next;
-                    temp.next = pointer;
-                    pointer.next = temp.next;
-                    if (pointer == first)
-                        first = temp;
-                    pointer = pointer.next;
+                    pointer.next = comp.next;
                     
-                    
-                    // move pointer
-                }
-                else
-                {
-                    pointer = pointer.next;
-                }
+                    comp.next = pointer;
+                  
+                    first = comp;
+                }    
+                comp = pointer.next;
+
             }
         }
         
@@ -311,11 +310,16 @@ public class LinkedListSortAndReverse
         System.out.println("What is the length of the linked list?  " +
                                     ll.size());
         
-        ll.add("Amy");
-        ll.add("Bob");
-        ll.add(0, "Al");
-        ll.add(2, "Beth");
-        ll.add(4, "Carol");
+//        ll.add("Carol");
+//        ll.add("Bob");
+//        ll.add(0, "Al");
+//        ll.add(2, "Beth");
+//        ll.add(4, "Amy");
+
+        ll.add("C");
+        ll.add("B");
+        ll.add("A");
+
         System.out.println("The members of the list are:");
         System.out.println(ll);
         
@@ -324,6 +328,7 @@ public class LinkedListSortAndReverse
 //        ll.remove(2);
 //        System.out.println(ll.toString());
         ll.reverse();
+        ll.sort();
         // Remove by element Amy.
 //        System.out.println("Remove Amy:");
 //        ll.remove("Amy");
