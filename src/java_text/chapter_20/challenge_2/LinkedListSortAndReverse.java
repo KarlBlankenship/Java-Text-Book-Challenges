@@ -246,6 +246,9 @@ public class LinkedListSortAndReverse
         return true;
     }
      
+    /**
+     * The reverse method will reverse the order of the linked list.
+     */
     public void reverse()
     {
         Node pointer = last;
@@ -262,6 +265,35 @@ public class LinkedListSortAndReverse
             else    
                 pointer.next.next = succ;   
         }  
+    }
+    
+    public void sort()
+    {
+        Node pointer = first;
+        // try bubble sort
+        for (int i = size() - 1; i >= 0; i--)
+        {
+            for (int j = 0; j <= i - 1; j++)
+            {
+                if (pointer.value.compareTo(pointer.next.value) > 0)
+                {
+                    Node temp = pointer.next;
+                    temp.next = pointer;
+                    pointer.next = temp.next;
+                    if (pointer == first)
+                        first = temp;
+                    pointer = pointer.next;
+                    
+                    
+                    // move pointer
+                }
+                else
+                {
+                    pointer = pointer.next;
+                }
+            }
+        }
+        
     }
     
     /**
