@@ -269,57 +269,104 @@ public class LinkedListSortAndReverse
     
     public void sort()
     {
-        int s = size();
-        // try bubble sort
-        for (int i = s; i > 1; i--)
+        if (size() > 1)
         {
-            Node pointer = first;
-            Node comp = pointer.next;
-            Node prev = null;
-            System.out.println("i");
-            //System.out.println("first: " + first.value);
+            Node point = first;
+            Node lastPoint = null;
+            Node temp = null;
+            Node prev = first;
             
-            for (int j = 1; j <= i - 1; j++)
+            last.next = lastPoint;
+            
+            while (first != last)
             {
-                System.out.println("j");
-                if (pointer.value.compareTo(comp.value) > 0)
+                do 
                 {
-                    if (pointer == first && comp.next != null)
+                    if (point.value.compareTo(point.next.value) > 0)
                     {
-                        
-                        pointer.next = comp.next;
-                        comp.next = pointer;
-                        first = comp;
-                        prev = first;
-                    }
-                    else if (pointer != first && comp.next != null)
-                    {
-                        pointer.next = comp.next;
-                        comp.next = pointer;
-                        prev.next = comp;
-                        prev = comp;
-                        comp = 
-                    }
-                    
-                    else ()
-                    {
+                        if (point == first)
+                        {
+                            first = point.next;
+                            prev = first;
+                        }
+                        temp = point.next;
+                        if (temp == last)
+                        {
+                            last = point;
+                        }
+                        point.next = temp.next;
+                        temp.next = point;
+                        prev.next = temp;
+                        prev = temp;
 
                     }
-                }    
-                                
-                else
-                {
-                System.out.println("else");
-                if (prev == null)
-                    prev = first;
-                else
-                    prev = prev.next;
-                pointer = pointer.next;
-                comp = comp.next;
-                }
+                    else
+                    {
+                        point = point.next;
+                    }
+                }   
+                while (point.next != lastPoint);
+                
+                lastPoint = temp;
+                
+                System.out.println("first is :  " + first.value);
+                System.out.println("last is  :  " + last.value);
                 
             }
+
         }
+        
+//        int s = size();
+//        // try bubble sort
+//        for (int i = s; i > 1; i--)
+//        {
+//            Node pointer = first;
+//            Node comp = pointer.next;
+//            Node prev = null;
+//            System.out.println("i");
+//            //System.out.println("first: " + first.value);
+//            
+//            for (int j = 1; j <= i - 1; j++)
+//            {
+//                System.out.println("j");
+//                if (pointer.value.compareTo(comp.value) > 0)
+//                {
+//                    if (pointer == first && comp.next != null)
+//                    {
+//                        
+//                        pointer.next = comp.next;
+//                        comp.next = pointer;
+//                        first = comp;
+//                        prev = first;
+//                    }
+//                    else if (pointer != first && comp.next != null)
+//                    {
+//                        pointer.next = comp.next;
+//                        comp.next = pointer;
+//                        prev.next = comp;
+//                        prev = comp;
+//                        comp = 
+//                    }
+//                    
+//                    else ()
+//                    {
+//
+//                    }
+//                }    
+//                                
+//                else
+//                {
+//                System.out.println("else");
+//                if (prev == null)
+//                    prev = first;
+//                else
+//                    prev = prev.next;
+//                pointer = pointer.next;
+//                comp = comp.next;
+//                }
+//                
+//            }
+//        }
         
     }
     
@@ -346,10 +393,13 @@ public class LinkedListSortAndReverse
 
         ll.add("D");
         ll.add("C");
-        ll.add("B");
+        
         ll.add("A");
         
-
+        ll.add("B");
+        
+        
+        
         System.out.println("The members of the list are:");
         System.out.println(ll);
         
