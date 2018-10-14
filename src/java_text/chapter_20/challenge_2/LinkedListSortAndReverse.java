@@ -278,7 +278,7 @@ public class LinkedListSortAndReverse
             
             last.next = lastPoint;
             
-            while (first != last)
+            do
             {
                 do 
                 {
@@ -303,17 +303,21 @@ public class LinkedListSortAndReverse
                     else
                     {
                         point = point.next;
+                        prev = prev.next;       //guess??
                     }
                 }   
                 while (point.next != lastPoint);
                 
-                lastPoint = temp;
+                lastPoint = point;
+                
+                
+                point = first;
                 
                 System.out.println("first is :  " + first.value);
                 System.out.println("last is  :  " + last.value);
                 
             }
-
+            while (first != lastPoint);
         }
         
 //        int s = size();
@@ -393,10 +397,10 @@ public class LinkedListSortAndReverse
 
         ll.add("D");
         ll.add("C");
-        
+        ll.add("B");
         ll.add("A");
         
-        ll.add("B");
+        
         
         
         
