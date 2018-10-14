@@ -277,33 +277,46 @@ public class LinkedListSortAndReverse
             Node comp = pointer.next;
             Node prev = null;
             System.out.println("i");
-            System.out.println("first: " + first.value);
+            //System.out.println("first: " + first.value);
             
             for (int j = 1; j <= i - 1; j++)
             {
                 System.out.println("j");
                 if (pointer.value.compareTo(comp.value) > 0)
                 {
-                    System.out.println("D greater than A");
-                    pointer.next = comp.next;
-                    if (pointer.next == null)
+                    if (pointer == first && comp.next != null)
                     {
-                        last = pointer;
-                    }
-                    comp.next = pointer;
-                    if (j == 1)
-                    {
+                        
+                        pointer.next = comp.next;
+                        comp.next = pointer;
                         first = comp;
                         prev = first;
                     }
-                    prev.next = comp;
+                    else if (pointer != first && comp.next != null)
+                    {
+                        pointer.next = comp.next;
+                        comp.next = pointer;
+                        prev.next = comp;
+                        prev = comp;
+                        comp = 
+                    }
+                    
+                    else ()
+                    {
+
+                    }
                 }    
                                 
-                
-                comp = pointer.next;
-                
-                    
-                prev = prev.next;
+                else
+                {
+                System.out.println("else");
+                if (prev == null)
+                    prev = first;
+                else
+                    prev = prev.next;
+                pointer = pointer.next;
+                comp = comp.next;
+                }
                 
             }
         }
@@ -319,11 +332,11 @@ public class LinkedListSortAndReverse
         LinkedListSortAndReverse ll = new LinkedListSortAndReverse();
         
         // Check isEmpty.
-        System.out.println("Is the linked list empty?  " + ll.isEmpty());
+        //System.out.println("Is the linked list empty?  " + ll.isEmpty());
         
         // Check size
-        System.out.println("What is the length of the linked list?  " +
-                                    ll.size());
+        //System.out.println("What is the length of the linked list?  " +
+        //                            ll.size());
         
 //        ll.add("Carol");
 //        ll.add("Bob");
@@ -351,6 +364,6 @@ public class LinkedListSortAndReverse
 //        ll.remove("Amy");
         System.out.println(ll);
         System.out.println();
-        System.out.println(ll.last.next);
+        //System.out.println(ll.last.next);
     }   
 }
