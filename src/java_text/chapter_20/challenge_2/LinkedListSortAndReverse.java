@@ -277,7 +277,7 @@ public class LinkedListSortAndReverse
             Node comp = pointer.next;
             
             
-            for (int j = 1; j <= i; j++)
+            for (int j = 1; j <= size() - 1; j++)
             {
             
                 if (pointer.value.compareTo(comp.value) < 0)
@@ -316,9 +316,11 @@ public class LinkedListSortAndReverse
 //        ll.add(2, "Beth");
 //        ll.add(4, "Amy");
 
+        ll.add("D");
         ll.add("C");
         ll.add("B");
         ll.add("A");
+        
 
         System.out.println("The members of the list are:");
         System.out.println(ll);
