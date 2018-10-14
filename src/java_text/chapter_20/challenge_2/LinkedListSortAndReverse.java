@@ -264,32 +264,47 @@ public class LinkedListSortAndReverse
                 pointer.next.next = null;
             else    
                 pointer.next.next = succ;   
-        }  
+        }
     }
     
     public void sort()
     {
-        
+        int s = size();
         // try bubble sort
-        for (int i = size() - 1; i > 0; i--)
+        for (int i = s; i > 1; i--)
         {
             Node pointer = first;
             Node comp = pointer.next;
+            Node prev = null;
+            System.out.println("i");
+            System.out.println("first: " + first.value);
             
-            
-            for (int j = 1; j <= size() - 1; j++)
+            for (int j = 1; j <= i - 1; j++)
             {
-            
-                if (pointer.value.compareTo(comp.value) < 0)
+                System.out.println("j");
+                if (pointer.value.compareTo(comp.value) > 0)
                 {
+                    System.out.println("D greater than A");
                     pointer.next = comp.next;
-                    
+                    if (pointer.next == null)
+                    {
+                        last = pointer;
+                    }
                     comp.next = pointer;
-                  
-                    first = comp;
+                    if (j == 1)
+                    {
+                        first = comp;
+                        prev = first;
+                    }
+                    prev.next = comp;
                 }    
+                                
+                
                 comp = pointer.next;
-
+                
+                    
+                prev = prev.next;
+                
             }
         }
         
@@ -329,7 +344,7 @@ public class LinkedListSortAndReverse
 //        System.out.println("Remove index 2 -> Beth:");
 //        ll.remove(2);
 //        System.out.println(ll.toString());
-        ll.reverse();
+        //ll.reverse();
         ll.sort();
         // Remove by element Amy.
 //        System.out.println("Remove Amy:");
